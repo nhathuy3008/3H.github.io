@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ cá nhân</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hiệu ứng header */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hiệu ứng avatar */
+        .avatar img {
+            transition: transform 0.3s ease-in-out;
+        }
+        .avatar:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Hiệu ứng hover danh sách */
+        li {
+            transition: all 0.3s ease;
+        }
+        li:hover {
+            transform: translateX(8px);
+            color: #2563eb;
+        }
+
+        /* Hiệu ứng xuất hiện dần */
+        .fade-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-in-out;
+        }
+        .fade-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 text-center fade-in">
+        <h1 class="text-3xl font-bold">Hồ sơ cá nhân</h1>
+    </header>
+
+    <!-- Thông tin cá nhân -->
+    <section class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-6 fade-item">
+        <div class="avatar w-32 h-32 mx-auto">
+            <img src="../assets/images/3.jpg" alt="Avatar" class="w-32 h-32 rounded-full border-4 border-blue-500">
+        </div>
+        <h2 class="text-2xl font-semibold text-center mt-4">Lương Gia Huy</h2>
+        <p class="text-center text-gray-600">Frontend Developer</p>
+
+        <h3 class="text-xl font-semibold mt-6 text-blue-600">🚀 Thông tin cá nhân</h3>
+        <ul class="list-disc pl-6 text-gray-700">
+            <li>Họ tên: Lương Gia Huy</li>
+            <li>Định hướng: Frontend Developer</li>
+            <li>Sở thích: Code, Thiết kế UI/UX</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-6 text-blue-600">📚 Quá trình học tập</h3>
+        <ul class="list-disc pl-6 text-gray-700">
+            <li>Đại học CNTT - Môn học: Lập trình Web, Phát triển phần mềm</li>
+            <li>Chứng chỉ: HTML, CSS, JavaScript</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-6 text-blue-600">💼 Dự án cá nhân</h3>
+        <ul class="list-disc pl-6 text-gray-700">
+            <li>🌐 Website bán hàng online</li>
+            <li>📌 Ứng dụng quản lý công việc</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-6 text-blue-600">📬 Liên hệ</h3>
+        <ul class="list-disc pl-6 text-gray-700">
+            <li>Email: giayhuy.dev@gmail.com</li>
+            <li>LinkedIn: linkedin.com/in/giahuy</li>
+            <li>GitHub: github.com/giahuydev</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 mt-6 fade-item">
+        &copy; 2025 Lương Gia Huy | Frontend Developer 🚀
+    </footer>
+
+    <script>
+        // Hiệu ứng xuất hiện dần khi cuộn trang
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeItems = document.querySelectorAll(".fade-item");
+
+            function checkScroll() {
+                fadeItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 50) {
+                        item.classList.add("show");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll(); // Kiểm tra lần đầu tiên khi tải trang
+        });
+    </script>
+
+</body>
+</html>
